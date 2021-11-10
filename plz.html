@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- Some images will show error in console due not having 'https' in the url,  nothing to worry about -->
+    <input type="checkbox" id="cartToggle" name="toggle" />
+      
+    <!-- Menu -->
+    <nav class="navbar">
+      <!-- <h2 id="logo">PET PUJA</h2> -->
+      <img src="logo.jpg" height='50' width='50'>
+      <div>
+        <label for="cartToggle" class="toggleCart btnStyle btnStyle2"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <i class="fa fa-circle" aria-hidden="true"></i>
+        <span class="num"></span>
+</label>
+      </div>
+    </nav><!-- End of Navigation -->
+
+    <div class="body-content">
+
+    <!-- Cart -->
+    <nav class="cart">
+      <h3>List of orders: <span>Rs.0</span></h3>
+      <ol id="listOfOrders">
+      </ol>
+      <a class="btnStyle btnStyle3 finishOrder">Finish Order</a>
+    </nav>
+
+      <div class="recipe-menu">
+
+        <!-- Recipe 1 -->
+        <div class="recipe">
+          <p class="name">Hamburger</p>
+          <img src="hamburger.png">
+          <a class="btnStyle3 btnStyle addToCart" id="addToCartHamburger">Add to Cart</a>
+          <p class="price"><span>Rs. </span>180</p>
+          <div id="checkOrderHamburger" title="Hamburger">
+            <h3 class="listHeading">List of Ingredients:</h3>
+            <ul class="listOfIngredients" id="recipe1">
+              <li><input type="checkbox" checked>Bun</li>
+              <li><input type="checkbox" checked>Patty</li>
+              <li><input type="checkbox" checked>Onion</li>
+              <li><input type="checkbox" checked>Pickle</li>
+              <li><input type="checkbox" checked>Lettuce Fries</li>
+            </ul>
+            <a class="btnStyle3 btnStyle addIngredient">Add Ingredient</a>
+            <a class="btnStyle listOver">Done</a>
+            <h4 class="totalDialog" id="totalDialog1">Total: <span>Rs. </span>180</h4>
+          </div>
+        </div>
+
+        <!-- Recipe 2 -->
+        <div class="recipe">
+          <p class="name">Momo</p>
+          <img src="momo.jpg">
+          <a class="btnStyle3 btnStyle addToCart" id="addToCartMomo">Add to Cart</a>
+          <p class="price"><span>Rs. </span>100</p>
+          <div id="checkOrderMomo" title="Momo">
+            <h3 class="listHeading">List of Ingredients:</h3>
+            <ul class="listOfIngredients" id="recipe2">
+              <li><input type="checkbox" checked>Flour</li>
+              <li><input type="checkbox" checked>Vegetables/Meat</li>
+              <li><input type="checkbox" checked>Tomato achar</li>
+              <li><input type="checkbox" checked>Coriander</li>
+
+            </ul>
+            <a class="btnStyle3 btnStyle addIngredient">Add Ingredient</a>
+            <a class="btnStyle listOver">Done</a>
+            <h4 class="totalDialog" id="totalDialog2">Total: <span>Rs. </span>100</h4>
+          </div>
+        </div>
+
+        <!-- Recipe 3 -->
+        <div class="recipe">
+          <p class="name">Pizza</p>
+          <img src="pizza.jpg">
+          <a class="btnStyle3 btnStyle addToCart" id="addToCartPizza">Add to Cart</a>
+          <p class="price"><span>Rs. </span>250</p>
+          <div id="checkOrderPizza" title="Pizza">
+            <h3 class="listHeading">List of Ingredients:</h3>
+            <ul class="listOfIngredients" id="recipe3">
+              <li><input type="checkbox" checked>Tomato Sauce</li>
+              <li><input type="checkbox" checked>Cheese</li>
+              <li><input type="checkbox" checked>Peperoni/sausage</li>
+              <li><input type="checkbox" checked>Olives</li>
+              <li><input type="checkbox" checked>Mushrooms</li>
+              <li><input type="checkbox" checked>Basil</li>
+            </ul>
+            <a class="btnStyle3 btnStyle addIngredient">Add Ingredient</a>
+            <a class="btnStyle listOver">Done</a>
+            <h4 class="totalDialog" id="totalDialog3">Total: <span>Rs. </span>250</h4>
+          </div>
+        </div>
+
+        <!-- Recipe 4 -->
+        <div class="recipe">
+          <p class="name">Fries</p>
+          <img src="fries.jpg">
+          <a class="btnStyle3 btnStyle addToCart" id="addToCartFries">Add to Cart</a>
+          <p class="price"><span>Rs. </span>100</p>
+          <div id="checkOrderFries" title="Fries">
+            <h3 class="listHeading">List of Ingredients:</h3>
+            <ul class="listOfIngredients" id="recipe4">
+              <li><input type="checkbox" checked>Potato</li>
+              <li><input type="checkbox" checked>Pepper,Salt</li>
+              <li><input type="checkbox" checked>Cheese</li>
+            </ul>
+            <a class="btnStyle3 btnStyle addIngredient">Add Ingredient</a>
+            <a class="btnStyle listOver">Done</a>
+            <h4 class="totalDialog" id="totalDialog4">Total: <span>Rs. </span>100</h4>
+          </div>
+        </div>
+
+        <!-- Recipe 5 -->
+        <div class="recipe">
+          <p class="name">Chowmien</p>
+          <img src="chowmien.jpg">
+          <a class="btnStyle3 btnStyle addToCart" id="addToCartChowmien">Add to Cart</a>
+          <p class="price"><span>Rs. </span>120</p>
+          <div id="checkOrderChowmien" title="Chowmien">
+            <h3 class="listHeading">List of Ingredients:</h3>
+            <ul class="listOfIngredients" id="recipe5">
+              <li><input type="checkbox" checked>Noodles</li>
+              <li><input type="checkbox" checked>Tomato Sauce</li>
+              <li><input type="checkbox" checked>Vegetables/Meat</li>
+              <li><input type="checkbox" checked>Onion</li>
+            </ul>
+            <a class="btnStyle3 btnStyle addIngredient">Add Ingredient</a>
+            <a class="btnStyle listOver">Done</a>
+            <h4 class="totalDialog" id="totalDialog5">Total: <span>Rs. </span>120</h4>
+          </div>
+        </div>
+
+        <!-- Recipe 6 -->
+        <div class="recipe">
+          <p class="name">biryani</p>
+          <img src="biryani.jpg">
+          <a class="btnStyle3 btnStyle addToCart" id="addToCartbiryani">Add to Cart</a>
+          <p class="price"><span>Rs. </span>280</p>
+          <div id="checkOrderbiryani" title="biryani">
+            <h3 class="listHeading">List of Ingredients:</h3>
+            <ul class="listOfIngredients" id="recipe6">
+              <li><input type="checkbox" checked> Rice</li>
+              <li><input type="checkbox" checked>Chicken gravy</li>
+              <li><input type="checkbox" checked>Onion</li>
+            </ul>
+            <a class="btnStyle3 btnStyle addIngredient">Add Ingredient</a>
+            <a class="btnStyle listOver">Done</a>
+            <h4 class="totalDialog" id="totalDialog6">Total: <span>Rs. </span>280</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="finishOrderDialog" title="Confirm Order">
+      <div id="finalOrderList">
+        <h3>Your Orders:</h3>
+        <ol></ol>
+      </div>
+      <div id="buyerInfo">
+        <input type="text" id="buyerName" placeholder="Enter Name">
+        <input type="text" id="buyerNumber" placeholder="Enter Phone Number">
+        <input type="text" id="buyerAddress" placeholder="Enter Address">
+
+        <a class="btnStyle order">Order!</a>
+      </div>
+    </div>
+
+    <div id="thanksMessage">
+      <h1>Thank you for the order</h1> <br>
+      <h3>Your food will be delivered soon!</h3>
+      <img style = "float:left; margin-right : 100px; padding-left : 300px;" src="yummy.jfif" width="80" height="80">
+    </div>
+     
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+          
+      
+      
+      
+          
+      
+          

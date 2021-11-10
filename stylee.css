@@ -1,0 +1,431 @@
+
+        
+        /*Scroll Design*/
+      ::-webkit-scrollbar {
+          z-index: 100;
+            width: 5px;
+      } /* this targets the default scrollbar (compulsory) */
+      ::-webkit-scrollbar-track {
+            background-color: #452732 ;
+      } /* the new scrollbar will have a flat appearance with the set background color */
+      
+      ::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+      } /* this will style the thumb, ignoring the track */
+      
+      ::-webkit-scrollbar-button {
+            background-color: #000;
+      } /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+      
+      ::-webkit-scrollbar-corner {
+            background-color: #000;
+      } /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+      
+      body{
+        background-image: url("backg.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100%;
+      }
+      /* Style CSS */
+      *{
+         margin: 0px;
+          padding: 0px;
+      }
+      .rounded-circle{
+          border-radius: 50%;
+          border: 3px solid #d3325f;
+          
+          box-shadow:0px 4px 3px #ff66a3;
+      }
+      
+      input{
+        outline-color: #C98474;
+      }
+      
+      .navbar {
+       
+          height: 60px;
+          width: 100%;
+          position: fixed;
+          z-index: 1;
+          background-color: #c9c1ac;
+          border-radius: 0px;
+          padding: 0px 100px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-sizing: border-box;
+      }
+      
+      .btnStyle{
+          background-color: #d3325f;
+          display: inline-block;
+          text-decoration: none;
+          font-size: 18px;
+          color: #fff;
+          padding: 7px 10px;
+          letter-spacing: .1em;
+          border-radius: 3px;
+          z-index: 1;
+          cursor: pointer;
+          transition: all .2s ease-in-out;
+      }
+      .listHeading,.listOfIngredients,.totalDialog,h3{
+         font:sans-serif;
+          color: #d3325f;
+      }
+      .ui-dialog-title{
+          color: whitesmoke;
+      }
+      .btnStyle:hover{
+          background-color: #ff66a3;
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, .16), 0px 6px 10px rgba(0, 0, 0, .23);
+          transform: scale(1.05, 1.05);
+      }
+      
+      .btnStyle2{
+          background-color: #d3325f;
+      }
+      
+      .btnStyle2:hover{
+          background-color: #ff66a3;
+      }
+      
+      .btnStyle3{
+          background-color: white (252, 235, 235);
+      }
+      
+      .btnStyle3:hover{
+          background-color: #ff66a3;
+      }
+      
+      .toggleCart{
+          position: relative;
+      }
+      
+      .fa-circle {
+          font-size: 21px !important;
+          color: #d3325f;
+      }
+      
+      .num {
+          font-size: 12px;
+          padding: 3px 6px;
+          color: #fff;
+          
+      }
+      
+      .num, .fa-circle {
+          position: absolute;
+          
+          right: -9px;
+          top: -9px;
+      }
+      
+      .cart{
+          width: 200px;
+          position: fixed;
+          top: 60px;
+          bottom: 0px;
+          right: -300px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+      
+          z-index: 1;
+          background-color: whitesmoke;
+          padding: 30px;
+          box-shadow: 2px 0 20px 5px rgba(0, 0, 0, 0.24);
+      
+          transition: all 0.25s ease-in-out;
+      }
+      
+      .cart h2{
+          text-align: center;
+          margin-bottom: 10px;
+      }
+      
+      #cartToggle{
+          display: none;
+      }
+      
+      /*where the magic happens*/
+      #cartToggle:checked ~ div.body-content > .cart{
+          right: 0px;
+      }
+      
+      #cartToggle:checked ~ div.body-content{
+          right: 100px;
+      }
+      
+      #cartToggle:checked ~ div.body-content > .cart > a.finishOrder{
+          right: 5px;
+      }
+      
+      .body-content{
+          position: relative;
+         
+          right: 0px;
+          width: 80%;
+          margin: 0px auto;
+          display: flex;
+          justify-content: space-around;
+      
+          transition: all .2s ease-in-out;
+      }
+      
+      /* orders */
+      
+      .recipe-menu{
+          
+          margin-top: 100px;
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+         color:white;
+      }
+      
+      .recipe{
+          background-image: url('');
+          background-size: 100% 100%;
+          padding: 10px;
+        margin-bottom: 40px;
+          width: 300px;
+          position: relative;
+          
+      }
+      
+      .recipe img{
+          width: 100%;
+          height: 60%;
+          border: 3px solid whitesmoke;
+          box-shadow: 0px 4px 3px;
+          border-radius: .25rem;
+      }
+      
+      .name{
+          font-size: 23px;
+          text-align: center;
+      }
+      
+      .price {
+          font-weight: bold;
+          font-size: 22px;
+          padding: 0px 15px;
+      }
+      
+      .recipe:hover > .addToCart{
+          opacity: 1;
+      }
+      
+      .addToCart {
+          opacity: 0;
+          position: absolute;
+          top: 52%;
+          left: 28%;
+          transition: all .2s ease-in-out;
+      }
+      
+      .checkOrder{
+          padding: 50px;
+      }
+      
+      .checkOrder {
+          padding: 29px 50px !important;
+      }
+      
+      .listHeading {
+          text-align: center;
+          padding: 20px 0;
+      }
+      
+      .listOfIngredients{
+          list-style: none;
+          margin-bottom: 15px;
+      }
+      
+      .listOfIngredients input{
+          margin: 0px 5px;
+      }
+      
+      .addIngredientWrap{
+          display: flex;
+          margin: 5px 0;
+      }
+      
+      .addIngredientWrap input{
+          width: 60%;
+      }
+      
+      .addIngredientWrap a{
+          padding: 2px 6px;
+          margin: 0 5px;
+          font-size: 15px;
+      }
+      
+      .cancelInput{
+          background-color: #B33232;
+      }
+      
+      .orderName {
+          padding: 13px 0px 8px 0px;
+      }
+      
+      .orderPrice{
+          float: right;
+      }
+      
+      hr {
+          margin: 25px 0 5px 0;
+      }
+      
+      .delBtn {
+          float: right;
+          color: #d3325f;
+          cursor: pointer;
+      }
+      
+      .totalDialog{
+          display: inline-block;
+          float: none;
+      }
+      
+      .cart > h2 > span{
+          margin-left: 15px
+      }
+      
+      .finishOrder {
+          width: 200px;
+          position: fixed;
+          bottom: 0;
+          right: -265px;
+          z-index: 2;
+          padding: 6px 28px;
+          border-radius: 0;
+          text-align: center;
+      }
+      
+      #finishOrderDialog{
+          padding: 30px;
+          display: flex;
+          justify-content: space-around;
+      }
+      
+      #finalOrderList{
+          width: 40%;
+      }
+      
+      #finalOrderList h3{
+          text-align: center;
+      }
+      
+      #finalOrderList ol{
+          margin: 10px 15px;
+      }
+      
+      #buyerInfo {
+          width: 60%;
+          margin: 0 10px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+      }
+      
+      #buyerInfo input {
+          margin: 5px 0;
+          padding: 3px;
+          width: 90%;
+      }
+      
+      #buyerInfo .order{
+          display: block;
+          width: 50%;
+          margin-top: 10px;
+          text-align:center;
+      }
+
+          /* .locate{
+        display: block;
+        width: 80%;
+        margin-top: 20px;
+        text-align:center;
+      }   
+      
+      #map{
+          padding: 50px;
+      } */
+
+        /**
+ * Simple fade transition,
+ */
+.mfp-fade.mfp-bg {
+	opacity: 0;
+	-webkit-transition: all 0.15s ease-out; 
+	-moz-transition: all 0.15s ease-out; 
+	transition: all 0.15s ease-out;
+}
+.mfp-fade.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+.mfp-fade.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+	opacity: 0;
+	-webkit-transition: all 0.15s ease-out; 
+	-moz-transition: all 0.15s ease-out; 
+	transition: all 0.15s ease-out;
+}
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+}
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+}
+
+      #buyerInfo input::-webkit-input-placeholder {
+         text-align: center;
+      }
+      
+      #thanksMessage{
+          padding: 40px;
+      }
+      
+      /* Dialog Style */
+      .ui-dialog {
+          z-index: 2;
+            box-shadow: 2px 0 20px 5px rgba(0, 0, 0, 0.24);
+        background-color: #fff;
+        padding: 30px;
+      }
+      
+      .ui-draggable-handle {
+          position: absolute;
+          background-color: #d3325f;
+          width: 100%;
+          top: 0;
+          left: 0;
+          padding: 5px;
+          box-sizing: border-box;
+          text-align: center;
+          z-index: 999;
+      }
+      
+      .ui-button {
+          background-color: white;
+          border: none;
+          border-radius: 3px;
+          padding: 3px 5px;
+          float: right;
+          cursor: pointer;
+          transition: all .9s ease-in-out;
+      }
+      
+      .ui-button:hover{
+        background-color: #C98474;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, .16), 0px 6px 10px rgba(0, 0, 0, .23);
+          transform: scale(1.05, 1.05);
+      }
+      
+      
