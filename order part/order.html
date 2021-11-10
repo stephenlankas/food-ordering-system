@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+
+  <!-- <script defer src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./order.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- <h2 id="logo">PET PUJA</h2> -->
+        
+        <a href="C:\Users\user\Desktop\inside-2\midd\index.html">
+          <img src="logo.jpg" height='50' width='50' class="rounded-circle " >
+        </a>
+        <div><a href='#cart'>
+            <label for="cartToggle" class="toggleCart btnStyle btnStyle2"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <span class="num"></span>
+        </label></a>
+          </div>
+        </nav>
+  <div class=" py-5 items-container">
+    <div class="container my-5">
+      <div class="row items"></div>
+    </div>
+  </div>
+  <div class="cart-overlay" id="cart">
+    <div class="cart">
+      <span class="close-cart"><i class="fas fa-window-close"></i></span>
+      <h2>Your cart</h2>
+      <div class="cart-content">hello</div>
+      <div class="cart-footer">
+        <h3>Your cart total:Rs. <span class="cart-total"></span></h3>
+        <button class="btn btn-danger checkout-btn" type="button" class="btn btn-primary" data-toggle="modal"
+          data-target="#orderconfirmModal">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalCenterTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body d-flex">
+          <img src="" alt="" class="modal-body-img  mr-2" />
+          <div>
+            <h5 style="text-decoration: underline;text-transform:capitalize;">
+              ingredients
+            </h5>
+            <div class="ingredient-list ml-4"></div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex">
+          
+          
+          <button type="button" class="btn btn-default modal-price"></button>
+          <button type="button" class="btn btn-success add-to-cart" data-dismiss="modal">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--order confirm Modal -->
+  <div class="modal fade mymodal" id="orderconfirmModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <form class="savingorder">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              confirm order
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body d-flex">
+            <div class="added-items">
+              fdsfgdsg
+            </div>
+            <div class="details-form">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"
+                  placeholder="Enter your name" required minlength="3"  maxlength="1000"/>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required minlength="6"  maxlength="1000" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" pattern="[9][8][0-9]{8}" placeholder="Enter your phone no. (98XXXXXXXX)" />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success order-success">
+              confirm order
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <script>
+
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+    
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA31DCogiFh5-6nqka-onPDqXEXefkUD20",
+      authDomain: "uggghh-eaecd.firebaseapp.com",
+      databaseURL: "https://uggghh-eaecd.firebaseio.com",
+      projectId: "uggghh-eaecd",
+      storageBucket: "uggghh-eaecd.appspot.com",
+      messagingSenderId: "1065017607625",
+      appId: "1:1065017607625:web:2831a3b55ee3bd4e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  <script src="order.js"></script>
+  <!-- bootstrap javascript and jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script>
+    $("#myModal").on("shown.bs.modal", function () {
+      $("#myInput").trigger("focus");
+    });
+  </script>
+</body>
+
+</html>
