@@ -1,0 +1,107 @@
+#header {
+    min-height: calc(100vh);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/black-bean-close-up-cooked-1640774.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.height-98 {
+    min-height: calc(100vh);
+}
+
+body {
+    font-family: 'Stylish', sans-serif;
+    color: #c9c1ac;
+    background: url(../img/backg.jpg)center/cover fixed no-repeat;
+}
+
+.banner h1 {
+    border-top: 6px dotted #c9c1ac;
+    border-bottom: 6px dotted #c9c1ac;
+    animation: fromLeft;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fromLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.main-btn {
+    color: #d3325f;
+    font-size: 2rem;
+    border: 2px solid #d3325f;
+    transition: all 1s ease-in-out;
+}
+
+.main-btn:hover {
+    color: lightskyblue;
+    border: 2px solid #c9c1ac;
+    background: #c9c1ac;
+}
+
+.sushi-btn {
+    animation: fromRight;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fromRight {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-30px);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.header-link {
+    display: inline block;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    background: #c9c1ac;
+    border-radius: 10px;
+    transition: all 2s ease;
+    animation: fromBottom;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.header-link:hover {
+    color: #224422;
+}
+
+@keyframes fromBottom {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
